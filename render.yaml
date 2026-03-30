@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: uno-telegram-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false          # You'll enter this manually in Render dashboard
+      - key: WEBHOOK_URL
+        sync: false          # Your Render public URL e.g. https://uno-bot.onrender.com
+      - key: PORT
+        value: 8443
